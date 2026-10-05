@@ -1,0 +1,10 @@
+name: astrbot_plugin_keyword_reply
+display_name: Keyword Reply (关键词自动回复)
+desc: 监测到指定内容就发送指定内容，可附带本地图片或网络图片，带冷却时间防止刷屏；支持包含/精确/正则匹配、群聊与私聊开关、用户黑名单
+help: 在插件配置里逐条添加规则，格式「触发词，回复内容，图片，冷却秒数」，后三项可省略；例如「姆唔，姆唔，tu_1」表示监测到「姆唔」就回复「姆唔」并附上图片 tu_1。
+version: 1.2.1
+author: 綾地 寧々&Fangnai-byte
+repo: "https://github.com/Fangnai-byte/astrbot_plugin_keyword_reply"
+support_platforms:
+  - aiocqhttp
+astrbot_version: ">=v4.12.0"

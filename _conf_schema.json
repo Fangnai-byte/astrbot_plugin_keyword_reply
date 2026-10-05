@@ -1,0 +1,98 @@
+{
+  "rules": {
+    "description": "回复规则",
+    "hint": "每条一行，格式：触发词，回复内容，图片，冷却秒数（后三项可省略）。例：姆唔，姆唔，tu_1 ｜ 图片只写图名即可，自动在图片目录里找。也支持 JSON 数组写法。",
+    "type": "list",
+    "default": []
+  },
+  "match_type": {
+    "description": "默认匹配方式",
+    "hint": "contains=消息里包含触发词（推荐）；exact=完全相等；regex=按正则匹配。单条规则可在 JSON 写法里单独指定。",
+    "type": "string",
+    "default": "contains"
+  },
+  "cooldown_seconds": {
+    "description": "默认冷却时间（秒）",
+    "hint": "同一条规则触发后，在冷却时间内不再重复发送，防止刷屏。0 表示不限制。默认 30 秒。",
+    "type": "int",
+    "default": 30
+  },
+  "cooldown_scope": {
+    "description": "冷却范围",
+    "hint": "group=每个群各自冷却（推荐）；user=每个用户各自冷却；global=全局共用一份冷却。",
+    "type": "string",
+    "default": "group"
+  },
+  "cooldown_hint": {
+    "description": "冷却中的提示语",
+    "hint": "留空则冷却期间静默不回复。填写后冷却期间只提示一次，例如：别急嘛，等会儿再说。",
+    "type": "string",
+    "default": ""
+  },
+  "image_dir": {
+    "description": "图片目录",
+    "hint": "规则里只写图片名时，到这个目录里找（自动补 .jpg/.png/.gif 等扩展名）。默认 /root/AstrBot/data/workspaces/tu。",
+    "type": "string",
+    "default": "/root/AstrBot/data/workspaces/tu"
+  },
+  "enable_group": {
+    "description": "在群里生效",
+    "hint": "关闭后群聊里不再触发。",
+    "type": "bool",
+    "default": true
+  },
+  "enable_private": {
+    "description": "在私聊生效",
+    "hint": "关闭后私聊里不再触发。",
+    "type": "bool",
+    "default": true
+  },
+  "ignore_bot": {
+    "description": "忽略机器人自己的消息",
+    "hint": "默认开启，避免机器人自问自答形成死循环。",
+    "type": "bool",
+    "default": true
+  },
+  "ignore_user_ids": {
+    "description": "不触发回复的 QQ 号",
+    "hint": "这些人的消息不会触发任何规则，逗号或列表形式。",
+    "type": "list",
+    "default": []
+  },
+  "ignore_group_ids": {
+    "description": "不触发回复的 QQ 群号",
+    "hint": "这些群里不会触发任何规则，逗号或列表形式。",
+    "type": "list",
+    "default": []
+  },
+  "no_quote": {
+    "description": "回复时不引用原消息",
+    "hint": "开启后，本插件发出的消息不带引用/@（直接发送，绕过框架的引用装饰）。关闭则跟随全局「回复时引用发送人消息」设置。",
+    "type": "bool",
+    "default": true
+  },
+  "dedup_enabled": {
+    "description": "上面已有触发词就不再回复",
+    "hint": "开启后，如果同一条触发词刚刚在上面的消息里出现过，就不再重复发送。",
+    "type": "bool",
+    "default": true
+  },
+  "dedup_window": {
+    "description": "往上检查几条消息",
+    "hint": "1=只看紧邻的上一条（推荐）；3=往上三条内有触发词就跳过。",
+    "type": "int",
+    "default": 1
+  },
+  "dedup_seconds": {
+    "description": "去重时间范围（秒）",
+    "hint": "只统计这么多秒以内的上面消息，0 表示不限时间。",
+    "type": "int",
+    "default": 0
+  },
+  "dedup_same_user_only": {
+    "description": "只算同一个人说的",
+    "hint": "默认关闭：上面谁说过同样的触发词都算。开启后，只有同一个人上面说过才跳过。",
+    "type": "bool",
+    "default": false
+  }
+}
